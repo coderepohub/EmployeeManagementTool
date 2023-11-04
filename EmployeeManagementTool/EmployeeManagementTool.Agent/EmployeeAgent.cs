@@ -1,14 +1,18 @@
-﻿using EmployeeManagementTool.Contracts;
+﻿using AutoMapper;
+using EmployeeManagementTool.Contracts;
 using EmployeeManagementTool.Models;
+using EmployeeManagementTool.Models.RestResponses;
 
 namespace EmployeeManagementTool.Agent
 {
     public class EmployeeAgent : IEmployeeAgent
     {
         private readonly IEmployeeRestClient _employeeRestClient;
-        public EmployeeAgent(IEmployeeRestClient employeeRestClient)
+        private readonly IMapper _mapper;
+        public EmployeeAgent(IEmployeeRestClient employeeRestClient, IMapper mapper)
         {
             _employeeRestClient = employeeRestClient ?? throw new ArgumentNullException(nameof(employeeRestClient));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         ///<inheritdoc/>
@@ -31,21 +35,43 @@ namespace EmployeeManagementTool.Agent
             {
                 return new List<Employee>();
             }
-            return result;
+            var employees = _mapper.Map<IEnumerable<Employee>>(result);
+            return employees;
         }
 
         ///<inheritdoc/>
-        public async Task<bool> SaveEmployeeAsync(Employee employee)
+        public async Task<SaveEmployeeAgentResponse> SaveEmployeeAsync(Employee employee)
         {
-            bool isEmployeeSaved = false;
             if (employee == null) { throw new ArgumentNullException(nameof(employee)); }
 
-            var result = await _employeeRestClient.SaveAsync(employee);
-            if (result != null && result.Id > 0)
+            SaveEmployeeAgentResponse saveEmployeeAgentResponse = new SaveEmployeeAgentResponse()
             {
-                isEmployeeSaved = true;
+                IsSuccess = false
+            };
+            var employeeDto = _mapper.Map<EmployeeDto>(employee);
+
+            var saveEmployeeRestResponse = await _employeeRestClient.SaveAsync(employeeDto);
+            if (saveEmployeeRestResponse != null)
+            {
+                if (saveEmployeeRestResponse.IsSuccess)
+                {
+                    saveEmployeeRestResponse.IsSuccess = true;
+                }
+                else
+                {
+                    if (saveEmployeeRestResponse.Errors != null && saveEmployeeRestResponse.Errors.Any())
+                    {
+                        string failureMessage = string.Empty;
+                        foreach (var item in saveEmployeeRestResponse.Errors)
+                        {
+                            failureMessage += $"{item.Field} {item.Message}\n";
+                        }
+                        saveEmployeeAgentResponse.ErrorMessage = failureMessage;
+                    }
+                }
             }
-            return isEmployeeSaved;
+
+            return saveEmployeeAgentResponse;
         }
 
         ///<inheritdoc/>
@@ -56,7 +82,8 @@ namespace EmployeeManagementTool.Agent
             var result = await _employeeRestClient.SearchEmployeeByIdAsync(id);
             if (result != null && result.Any())
             {
-                return result.First();
+                var employee = _mapper.Map<IEnumerable<Employee>>(result);
+                return employee.First();
             }
 
             return null;

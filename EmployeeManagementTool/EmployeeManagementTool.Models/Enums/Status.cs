@@ -8,7 +8,7 @@ namespace EmployeeManagementTool.Models.Enums
 {
     public enum Status
     {
-        Active,
-        InActive
+        active,
+        inactive
     }
 }

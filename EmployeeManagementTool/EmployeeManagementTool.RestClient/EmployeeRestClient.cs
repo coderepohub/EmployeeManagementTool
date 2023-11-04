@@ -2,8 +2,10 @@
 using EmployeeManagementTool.Models;
 using EmployeeManagementTool.Models.Confifurations;
 using EmployeeManagementTool.Models.Enums;
+using EmployeeManagementTool.Models.RestResponses;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
@@ -29,76 +31,84 @@ namespace EmployeeManagementTool.RestClient
         }
 
         ///<inheritdoc/>
-        public async Task<IEnumerable<Employee>> GetAllAsync()
+        public async Task<IEnumerable<EmployeeDto>> GetAllAsync()
         {
-            IEnumerable<Employee>? employees = null;
+            IEnumerable<EmployeeDto>? employees = null;
             var httpResponseMessage = await SendRequest<IEnumerable<Employee>>(Method.GET, _employeeOperationUri);
             if (httpResponseMessage.IsSuccessStatusCode && httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 var httpResponseContent = await httpResponseMessage.Content.ReadAsStringAsync();
                 if (httpResponseContent == null)
                     return employees!;
-                employees = JsonConvert.DeserializeObject<IEnumerable<Employee>>(httpResponseContent);
+                employees = JsonConvert.DeserializeObject<IEnumerable<EmployeeDto>>(httpResponseContent);
             }
 
             return employees!;
         }
 
         ///<inheritdoc/>
-        public async Task<Employee> SaveAsync(Employee employee)
+        public async Task<SaveEmployeeResponse> SaveAsync(EmployeeDto employee)
         {
-            Employee? createdEmployee = null;
-            var httpResponseMessage = await SendRequest<IEnumerable<Employee>>(Method.POST, _employeeOperationUri);
+            EmployeeDto? createdEmployee = null;
+            SaveEmployeeResponse saveEmployeeResponse = new SaveEmployeeResponse() { IsSuccess = false,};
+            var httpResponseMessage = await SendRequest<EmployeeDto>(Method.POST, _employeeOperationUri, employee);
             if (httpResponseMessage.IsSuccessStatusCode && httpResponseMessage.StatusCode == HttpStatusCode.Created)
             {
+                saveEmployeeResponse.IsSuccess = true;
                 var httpResponseContent = await httpResponseMessage.Content.ReadAsStringAsync();
-                if (httpResponseContent == null)
-                    return createdEmployee!;
-                createdEmployee = JsonConvert.DeserializeObject<Employee>(httpResponseContent);
+                createdEmployee = JsonConvert.DeserializeObject<EmployeeDto>(httpResponseContent);
+                saveEmployeeResponse.Employee = createdEmployee;
             }
-            return createdEmployee!;
+            else
+            {
+                saveEmployeeResponse.IsSuccess = false;
+                var httpResponseContent = await httpResponseMessage.Content.ReadAsStringAsync();
+                if(httpResponseContent == null) return saveEmployeeResponse;
+                saveEmployeeResponse.Errors = JsonConvert.DeserializeObject<IEnumerable<CreateEmployeeErrorResponse>>(httpResponseContent);
+            }
+            return saveEmployeeResponse!;
         }
 
         ///<inheritdoc/>
-        public async Task<IEnumerable<Employee>> SearchEmployeeByNameAsync(string name)
+        public async Task<IEnumerable<EmployeeDto>> SearchEmployeeByNameAsync(string name)
         {
-            IEnumerable<Employee>? employees = null;
+            IEnumerable<EmployeeDto>? employees = null;
             var uri = $"{_employeeOperationUri}?name={name}";
-            var httpResponseMessage = await SendRequest<IEnumerable<Employee>>(Method.GET, uri);
+            var httpResponseMessage = await SendRequest<IEnumerable<EmployeeDto>>(Method.GET, uri);
             if (httpResponseMessage.IsSuccessStatusCode && httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 var httpResponseContent = await httpResponseMessage.Content.ReadAsStringAsync();
                 if (httpResponseContent == null)
                     return employees!;
-                employees = JsonConvert.DeserializeObject<IEnumerable<Employee>>(httpResponseContent);
+                employees = JsonConvert.DeserializeObject<IEnumerable<EmployeeDto>>(httpResponseContent);
             }
 
             return employees!;
         }
 
         ///<inheritdoc/>
-        public async Task<IEnumerable<Employee>> SearchEmployeeByIdAsync(int id)
+        public async Task<IEnumerable<EmployeeDto>> SearchEmployeeByIdAsync(int id)
         {
-            IEnumerable<Employee>? employees = null;
+            IEnumerable<EmployeeDto>? employees = null;
             var uri = $"{_employeeOperationUri}?id={id}";
-            var httpResponseMessage = await SendRequest<IEnumerable<Employee>>(Method.GET, uri);
+            var httpResponseMessage = await SendRequest<IEnumerable<EmployeeDto>>(Method.GET, uri);
             if (httpResponseMessage.IsSuccessStatusCode && httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 var httpResponseContent = await httpResponseMessage.Content.ReadAsStringAsync();
                 if (httpResponseContent == null)
                     return employees!;
-                employees = JsonConvert.DeserializeObject<IEnumerable<Employee>>(httpResponseContent);
+                employees = JsonConvert.DeserializeObject<IEnumerable<EmployeeDto>>(httpResponseContent);
             }
 
             return employees!;
         }
 
         ///<inheritdoc/>
-        public async Task<bool> EditAsync(int id)
+        public async Task<bool> EditAsync(int id, EmployeeDto employeeDto)
         {
             bool isEdited = false;
             var uri = $"{_employeeOperationUri}/{id}";
-            var httpResponseMessage = await SendRequest<Employee>(Method.PATCH, uri);
+            var httpResponseMessage = await SendRequest<EmployeeDto>(Method.PATCH, uri,employeeDto);
             if (httpResponseMessage.IsSuccessStatusCode && httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 isEdited = true;
@@ -113,7 +123,7 @@ namespace EmployeeManagementTool.RestClient
         {
             bool isEdited = false;
             var uri = $"{_employeeOperationUri}/{id}";
-            var httpResponseMessage = await SendRequest<Employee>(Method.DELETE, uri);
+            var httpResponseMessage = await SendRequest<EmployeeDto>(Method.DELETE, uri);
             if (httpResponseMessage.IsSuccessStatusCode && httpResponseMessage.StatusCode == HttpStatusCode.NoContent)
             {
                 isEdited = true;
@@ -144,8 +154,17 @@ namespace EmployeeManagementTool.RestClient
                         case Method.GET:
                             response = await _httpClientProviders.GetJsonAsync(httpClient, uri);
                             break;
+                        case Method.POST:
+                            var serializerSettingsPost = new JsonSerializerSettings();
+                            serializerSettingsPost.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                            var bodySerializedPost = JsonConvert.SerializeObject(body, serializerSettingsPost);
+                            var formattedBodyPost = new StringContent(bodySerializedPost, Encoding.UTF8, "application/json");
+                            response = await _httpClientProviders.PostAsync(httpClient, uri, formattedBodyPost);
+                            break;
                         case Method.PATCH:
-                            var bodySerialized = JsonConvert.SerializeObject(body);
+                            var serializerSettings = new JsonSerializerSettings();
+                            serializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                            var bodySerialized = JsonConvert.SerializeObject(body, serializerSettings);
                             var formattedBody = new StringContent(bodySerialized, Encoding.UTF8, "application/json");
                             response = await _httpClientProviders.PatchAsync(httpClient, uri, formattedBody);
                             break;

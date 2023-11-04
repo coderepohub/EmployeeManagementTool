@@ -1,4 +1,5 @@
 ﻿using EmployeeManagementTool.Models;
+using EmployeeManagementTool.Models.RestResponses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,7 @@ public interface IEmployeeAgent
     /// </summary>
     /// <param name="employee">employee record to add.</param>
     /// <returns>True or False, if record is saved.</returns>
-    Task<bool> SaveEmployeeAsync(Employee employee);
+    Task<SaveEmployeeAgentResponse> SaveEmployeeAsync(Employee employee);
 
     /// <summary>
     /// Edit the employee record.

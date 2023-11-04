@@ -5,8 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EmployeeManagementTool"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="503" Width="885">
     <Grid>
+        <TabControl>
+            <TabItem Header="Add Employee">
+                <Grid Background="#FFE5E5E5">
+                    <!--Add Employee Controls-->
+                    <StackPanel Margin="20">
+                        <!-- Name -->
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <TextBlock Text="Name:" Width="100" VerticalAlignment="Center"/>
+                            <TextBox Name="NameTextBox" Width="200" VerticalAlignment="Center" Text="{Binding Name}"/>
+                        </StackPanel>
+
+                        <!-- Email -->
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <TextBlock Text="Email:" Width="100" VerticalAlignment="Center"/>
+                            <TextBox Name="EmailTextBox" Width="200" VerticalAlignment="Center" Text="{Binding Email}"/>
+                        </StackPanel>
+
+                        <!-- Gender -->
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <TextBlock Text="Gender:" Width="100" VerticalAlignment="Center"/>
+                            <ComboBox Name="GenderComboBox" Width="200" VerticalAlignment="Center" SelectedValue="{Binding Gender}"/>
+
+                        </StackPanel>
+
+                        <!--Submit-->
+                        <StackPanel Orientation="Horizontal" Margin="100,5,0,50">
+                            <Button Name="btn_add_employee" Content="Add Employee" Margin="5" Width="100" Click="btn_add_employee_Click"/>
+                        </StackPanel>
+                        
+                        <!--Progress Bar-->
+                        <ProgressBar x:Name="progressBar" IsIndeterminate="True" Visibility="Hidden"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Manage Employee">
+                <Grid Background="Blue">
+                    <!--Manage Employee Controls-->
+                </Grid>
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>
