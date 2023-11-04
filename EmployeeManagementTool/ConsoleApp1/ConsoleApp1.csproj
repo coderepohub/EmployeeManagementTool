@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EmployeeManagementTool.Agent\EmployeeManagementTool.Agent.csproj" />
+    <ProjectReference Include="..\EmployeeManagementTool.Contracts\EmployeeManagementTool.Contracts.csproj" />
+    <ProjectReference Include="..\EmployeeManagementTool.Models\EmployeeManagementTool.Models.csproj" />
+    <ProjectReference Include="..\EmployeeManagementTool.RestClient\EmployeeManagementTool.RestClient.csproj" />
+  </ItemGroup>
+
+</Project>

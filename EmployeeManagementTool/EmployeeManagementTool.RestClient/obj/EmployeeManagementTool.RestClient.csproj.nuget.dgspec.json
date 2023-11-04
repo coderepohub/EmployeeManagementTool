@@ -1,0 +1,209 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\coderepohub\\WPFApplication\\EmployeeManagementTool\\EmployeeManagementTool.RestClient\\EmployeeManagementTool.RestClient.csproj": {}
+  },
+  "projects": {
+    "C:\\coderepohub\\WPFApplication\\EmployeeManagementTool\\EmployeeManagementTool.Contracts\\EmployeeManagementTool.Contracts.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\coderepohub\\WPFApplication\\EmployeeManagementTool\\EmployeeManagementTool.Contracts\\EmployeeManagementTool.Contracts.csproj",
+        "projectName": "EmployeeManagementTool.Contracts",
+        "projectPath": "C:\\coderepohub\\WPFApplication\\EmployeeManagementTool\\EmployeeManagementTool.Contracts\\EmployeeManagementTool.Contracts.csproj",
+        "packagesPath": "C:\\Users\\akumar\\.nuget\\packages\\",
+        "outputPath": "C:\\coderepohub\\WPFApplication\\EmployeeManagementTool\\EmployeeManagementTool.Contracts\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\akumar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/independernl/_packaging/Independer/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\coderepohub\\WPFApplication\\EmployeeManagementTool\\EmployeeManagementTool.Models\\EmployeeManagementTool.Models.csproj": {
+                "projectPath": "C:\\coderepohub\\WPFApplication\\EmployeeManagementTool\\EmployeeManagementTool.Models\\EmployeeManagementTool.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\coderepohub\\WPFApplication\\EmployeeManagementTool\\EmployeeManagementTool.Models\\EmployeeManagementTool.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\coderepohub\\WPFApplication\\EmployeeManagementTool\\EmployeeManagementTool.Models\\EmployeeManagementTool.Models.csproj",
+        "projectName": "EmployeeManagementTool.Models",
+        "projectPath": "C:\\coderepohub\\WPFApplication\\EmployeeManagementTool\\EmployeeManagementTool.Models\\EmployeeManagementTool.Models.csproj",
+        "packagesPath": "C:\\Users\\akumar\\.nuget\\packages\\",
+        "outputPath": "C:\\coderepohub\\WPFApplication\\EmployeeManagementTool\\EmployeeManagementTool.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\akumar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/independernl/_packaging/Independer/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\coderepohub\\WPFApplication\\EmployeeManagementTool\\EmployeeManagementTool.RestClient\\EmployeeManagementTool.RestClient.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\coderepohub\\WPFApplication\\EmployeeManagementTool\\EmployeeManagementTool.RestClient\\EmployeeManagementTool.RestClient.csproj",
+        "projectName": "EmployeeManagementTool.RestClient",
+        "projectPath": "C:\\coderepohub\\WPFApplication\\EmployeeManagementTool\\EmployeeManagementTool.RestClient\\EmployeeManagementTool.RestClient.csproj",
+        "packagesPath": "C:\\Users\\akumar\\.nuget\\packages\\",
+        "outputPath": "C:\\coderepohub\\WPFApplication\\EmployeeManagementTool\\EmployeeManagementTool.RestClient\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\akumar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/independernl/_packaging/Independer/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\coderepohub\\WPFApplication\\EmployeeManagementTool\\EmployeeManagementTool.Contracts\\EmployeeManagementTool.Contracts.csproj": {
+                "projectPath": "C:\\coderepohub\\WPFApplication\\EmployeeManagementTool\\EmployeeManagementTool.Contracts\\EmployeeManagementTool.Contracts.csproj"
+              },
+              "C:\\coderepohub\\WPFApplication\\EmployeeManagementTool\\EmployeeManagementTool.Models\\EmployeeManagementTool.Models.csproj": {
+                "projectPath": "C:\\coderepohub\\WPFApplication\\EmployeeManagementTool\\EmployeeManagementTool.Models\\EmployeeManagementTool.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

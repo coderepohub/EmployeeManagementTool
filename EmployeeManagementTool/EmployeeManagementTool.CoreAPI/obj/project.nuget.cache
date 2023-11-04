@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "nGU/GfuVSP+pM4LqPh3aHIa13XzO2cQdHt4mRI4P5x9qw7s8fGStfP59W3FaPoGeDqMf6Oapx51Xo+dC+8265A==",
+  "success": true,
+  "projectFilePath": "C:\\coderepohub\\WPFApplication\\EmployeeManagementTool\\EmployeeManagementTool.CoreAPI\\EmployeeManagementTool.CoreAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\akumar\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\akumar\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\akumar\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\akumar\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\akumar\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\akumar\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "EmployeeManagementTool.Contracts/1.0.0": {
+        "dependencies": {
+          "EmployeeManagementTool.Models": "1.0.0"
+        },
+        "runtime": {
+          "EmployeeManagementTool.Contracts.dll": {}
+        }
+      },
+      "EmployeeManagementTool.Models/1.0.0": {
+        "runtime": {
+          "EmployeeManagementTool.Models.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "EmployeeManagementTool.Contracts/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EmployeeManagementTool.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

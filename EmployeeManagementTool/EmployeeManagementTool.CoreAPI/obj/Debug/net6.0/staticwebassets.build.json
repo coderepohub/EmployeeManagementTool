@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "aitO62WVBZ36HY/UF/xR6eIrMqfvFM/4j4TTDNzbslM=",
+  "Source": "EmployeeManagementTool.CoreAPI",
+  "BasePath": "_content/EmployeeManagementTool.CoreAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

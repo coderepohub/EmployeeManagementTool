@@ -1,0 +1,17 @@
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.RestClient\bin\Debug\net6.0\EmployeeManagementTool.RestClient.deps.json
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.RestClient\bin\Debug\net6.0\EmployeeManagementTool.RestClient.dll
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.RestClient\bin\Debug\net6.0\EmployeeManagementTool.RestClient.pdb
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.RestClient\bin\Debug\net6.0\EmployeeManagementTool.Contracts.dll
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.RestClient\bin\Debug\net6.0\EmployeeManagementTool.Models.dll
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.RestClient\bin\Debug\net6.0\EmployeeManagementTool.Contracts.pdb
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.RestClient\bin\Debug\net6.0\EmployeeManagementTool.Models.pdb
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.RestClient\obj\Debug\net6.0\EmployeeManagementTool.RestClient.csproj.AssemblyReference.cache
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.RestClient\obj\Debug\net6.0\EmployeeManagementTool.RestClient.GeneratedMSBuildEditorConfig.editorconfig
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.RestClient\obj\Debug\net6.0\EmployeeManagementTool.RestClient.AssemblyInfoInputs.cache
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.RestClient\obj\Debug\net6.0\EmployeeManagementTool.RestClient.AssemblyInfo.cs
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.RestClient\obj\Debug\net6.0\EmployeeManagementTool.RestClient.csproj.CoreCompileInputs.cache
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.RestClient\obj\Debug\net6.0\EmployeeManagementTool.RestClient.csproj.CopyComplete
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.RestClient\obj\Debug\net6.0\EmployeeManagementTool.RestClient.dll
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.RestClient\obj\Debug\net6.0\refint\EmployeeManagementTool.RestClient.dll
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.RestClient\obj\Debug\net6.0\EmployeeManagementTool.RestClient.pdb
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.RestClient\obj\Debug\net6.0\ref\EmployeeManagementTool.RestClient.dll

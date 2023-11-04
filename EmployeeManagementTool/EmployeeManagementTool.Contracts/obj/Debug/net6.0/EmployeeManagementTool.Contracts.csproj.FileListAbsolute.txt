@@ -1,0 +1,15 @@
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Contracts\bin\Debug\net6.0\EmployeeManagementTool.Contracts.deps.json
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Contracts\bin\Debug\net6.0\EmployeeManagementTool.Contracts.dll
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Contracts\bin\Debug\net6.0\EmployeeManagementTool.Contracts.pdb
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Contracts\bin\Debug\net6.0\EmployeeManagementTool.Models.dll
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Contracts\bin\Debug\net6.0\EmployeeManagementTool.Models.pdb
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Contracts\obj\Debug\net6.0\EmployeeManagementTool.Contracts.csproj.AssemblyReference.cache
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Contracts\obj\Debug\net6.0\EmployeeManagementTool.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Contracts\obj\Debug\net6.0\EmployeeManagementTool.Contracts.AssemblyInfoInputs.cache
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Contracts\obj\Debug\net6.0\EmployeeManagementTool.Contracts.AssemblyInfo.cs
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Contracts\obj\Debug\net6.0\EmployeeManagementTool.Contracts.csproj.CoreCompileInputs.cache
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Contracts\obj\Debug\net6.0\EmployeeManagementTool.Contracts.csproj.CopyComplete
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Contracts\obj\Debug\net6.0\EmployeeManagementTool.Contracts.dll
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Contracts\obj\Debug\net6.0\refint\EmployeeManagementTool.Contracts.dll
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Contracts\obj\Debug\net6.0\EmployeeManagementTool.Contracts.pdb
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Contracts\obj\Debug\net6.0\ref\EmployeeManagementTool.Contracts.dll

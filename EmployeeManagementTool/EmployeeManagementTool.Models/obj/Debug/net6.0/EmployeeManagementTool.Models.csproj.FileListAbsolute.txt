@@ -1,0 +1,12 @@
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Models\bin\Debug\net6.0\EmployeeManagementTool.Models.deps.json
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Models\bin\Debug\net6.0\EmployeeManagementTool.Models.dll
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Models\bin\Debug\net6.0\EmployeeManagementTool.Models.pdb
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Models\obj\Debug\net6.0\EmployeeManagementTool.Models.csproj.AssemblyReference.cache
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Models\obj\Debug\net6.0\EmployeeManagementTool.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Models\obj\Debug\net6.0\EmployeeManagementTool.Models.AssemblyInfoInputs.cache
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Models\obj\Debug\net6.0\EmployeeManagementTool.Models.AssemblyInfo.cs
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Models\obj\Debug\net6.0\EmployeeManagementTool.Models.csproj.CoreCompileInputs.cache
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Models\obj\Debug\net6.0\EmployeeManagementTool.Models.dll
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Models\obj\Debug\net6.0\refint\EmployeeManagementTool.Models.dll
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Models\obj\Debug\net6.0\EmployeeManagementTool.Models.pdb
+C:\coderepohub\WPFApplication\EmployeeManagementTool\EmployeeManagementTool.Models\obj\Debug\net6.0\ref\EmployeeManagementTool.Models.dll
