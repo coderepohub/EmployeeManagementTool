@@ -28,15 +28,14 @@ namespace EmployeeManagementTool.Agent
         }
 
         ///<inheritdoc/>
-        public async Task<IEnumerable<Employee>> GetAllEmployeesAsync()
+        public async Task<IEnumerable<EmployeeDto>> GetAllEmployeesAsync()
         {
             var result = await _employeeRestClient.GetAllAsync();
             if (result == null)
             {
-                return new List<Employee>();
+                return new List<EmployeeDto>();
             }
-            var employees = _mapper.Map<IEnumerable<Employee>>(result);
-            return employees;
+            return result;
         }
 
         ///<inheritdoc/>

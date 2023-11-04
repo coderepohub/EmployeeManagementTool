@@ -14,7 +14,7 @@ public interface IEmployeeAgent
     /// Get List of Employees
     /// </summary>
     /// <returns>Returns list of all Empliyees.</returns>
-    Task<IEnumerable<Employee>> GetAllEmployeesAsync();
+    Task<IEnumerable<EmployeeDto>> GetAllEmployeesAsync();
 
     /// <summary>
     /// Search Employee By Name

@@ -3,6 +3,7 @@ using EmployeeManagementTool.Models;
 using EmployeeManagementTool.Models.Enums;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,15 @@ namespace EmployeeManagementTool
             _employeeAgent = employeeAgent ?? throw new ArgumentNullException(nameof(employeeAgent));
             InitializeComponent();
 
+        //    Employees = new ObservableCollection<EmployeeDto>
+        //{
+        //    new EmployeeDto { Id = 1, Name = "John Doe", Email = "john@example.com", Gender = "Male", Status = "Active" },
+        //    new EmployeeDto { Id = 2, Name = "Jane Smith", Email = "jane@example.com", Gender = "Female", Status = "Inactive" },
+        //    // Add more employees as needed
+        //};
+        //    EmployeeDataGridXAML.Items.Add(Employees);
+            DataContext = this;
+
             Initialize();
         }
 
@@ -44,6 +54,15 @@ namespace EmployeeManagementTool
 
             // Optionally, you can set the initial selected value (e.g., Male) like this:
             GenderComboBox.SelectedValue = Gender.Male;
+
+            //Load Employees on form load
+            LoadEmployees();
+        }
+
+        private async void LoadEmployees()
+        {
+            var employees = await _employeeAgent.GetAllEmployeesAsync();
+            EmployeeDataGridXAML.ItemsSource = employees;
         }
 
         private async void btn_add_employee_Click(object sender, RoutedEventArgs e)
@@ -69,6 +88,14 @@ namespace EmployeeManagementTool
             {
                 MessageBox.Show(response.ErrorMessage);
             }
+        }
+
+        private async void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private async void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
         }
 
         private void ClearNewEmployeeForm()
