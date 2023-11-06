@@ -28,7 +28,6 @@
                         <!-- Gender -->
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                             <TextBlock Text="Gender:" Width="100" VerticalAlignment="Center"/>
-                            <!--<ComboBox Name="GenderComboBox" Width="200" VerticalAlignment="Center" SelectedValue="{Binding Gender}"/>-->
                             <ComboBox Name="GenderComboBox" Width="200" VerticalAlignment="Center" SelectedValue="{Binding Gender, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding GenderValues, RelativeSource={RelativeSource AncestorType=Window}}"/>
 
                         </StackPanel>

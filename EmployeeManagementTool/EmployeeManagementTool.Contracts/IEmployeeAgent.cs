@@ -1,10 +1,4 @@
 ﻿using EmployeeManagementTool.Models;
-using EmployeeManagementTool.Models.RestResponses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EmployeeManagementTool.Contracts;
 

@@ -1,12 +1,7 @@
 ﻿using AutoMapper;
 using EmployeeManagementTool.Agent.MappingProfiles;
-using EmployeeManagementTool.Models.Enums;
 using EmployeeManagementTool.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using EmployeeManagementTool.Models.Enums;
 
 namespace EmployeeManagementTool.UnitTest
 {

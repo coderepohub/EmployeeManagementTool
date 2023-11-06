@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using EmployeeManagementTool.Contracts;
 using EmployeeManagementTool.Models;
-using EmployeeManagementTool.Models.RestResponses;
 
 namespace EmployeeManagementTool.Agent
 {

@@ -1,10 +1,8 @@
-using EmployeeManagementTool.Agent;
 using EmployeeManagementTool.Contracts;
 using EmployeeManagementTool.Models;
 using EmployeeManagementTool.Models.Confifurations;
 using EmployeeManagementTool.Models.RestResponses;
 using EmployeeManagementTool.RestClient;
-using EmployeeManagementTool.RestClient.Helpers;
 using Microsoft.Extensions.Options;
 using Moq;
 using Newtonsoft.Json;

@@ -35,21 +35,31 @@ namespace EmployeeManagementTool
             EmployeeModel = new Employee();
             DataContext = EmployeeModel;
 
+            //Default Gender value
             GenderComboBox.SelectedValue = Gender.Male;
             //Load Employees on form load
             LoadEmployees();
         }
 
+        /// <summary>
+        /// Return all Gender values from Gender Enum
+        /// </summary>
         public IEnumerable<Gender> GenderValues
         {
             get { return Enum.GetValues(typeof(Gender)).Cast<Gender>(); }
         }
 
+        /// <summary>
+        /// Returns all applicable statuses from Status Enum
+        /// </summary>
         public IEnumerable<Status> Statuses
         {
             get { return Enum.GetValues(typeof(Status)).Cast<Status>(); }
         }
 
+        /// <summary>
+        /// Fetch All Employees
+        /// </summary>
         private async void LoadEmployees()
         {
             var employees = await _employeeAgent.GetAllEmployeesAsync();
@@ -60,6 +70,7 @@ namespace EmployeeManagementTool
 
 
         #region Event Handlers
+        //Add Employee Handler
         private async void btn_add_employee_Click(object sender, RoutedEventArgs e)
         {
             SetVisibility(showProgressBar: true, showAddEmployeeButton: false);
@@ -86,6 +97,7 @@ namespace EmployeeManagementTool
             }
         }
 
+        //Edit/Update Employee Handler
         private async void btn_update_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
@@ -107,6 +119,7 @@ namespace EmployeeManagementTool
 
         }
 
+        //Delete Employee Handler
         private async void btn_delete_Click(object sender, RoutedEventArgs e)
         {
             progressSearch.Visibility = Visibility.Visible;
@@ -119,13 +132,7 @@ namespace EmployeeManagementTool
             MessageBox.Show(deleteMessage);
         }
 
-        private void EmployeeDataGridXAML_CellEditEnding(object sender,
-                                DataGridCellEditEndingEventArgs e)
-        {
-            var editedEmployeeData = (EmployeeDto)e.Row.Item;
-            _editedEmployeeList.Add(editedEmployeeData);
-        }
-
+        //Search Employee By name Handler
         private async void btn_search_by_name_Click(object sender, RoutedEventArgs e)
         {
             progressSearch.Visibility = Visibility.Visible;
@@ -135,8 +142,17 @@ namespace EmployeeManagementTool
 
         }
 
+        //Grid Row Change Handler
+        private void EmployeeDataGridXAML_CellEditEnding(object sender,
+                                DataGridCellEditEndingEventArgs e)
+        {
+            var editedEmployeeData = (EmployeeDto)e.Row.Item;
+            _editedEmployeeList.Add(editedEmployeeData);
+        }
+
         #endregion
 
+        //Clear out the add empoyee form
         private void ClearNewEmployeeForm()
         {
             NameTextBox.Text = string.Empty;
@@ -144,6 +160,7 @@ namespace EmployeeManagementTool
             GenderComboBox.SelectedValue = Gender.Male;
         }
 
+        //Set Visibility for add employee
         private void SetVisibility(bool showProgressBar, bool showAddEmployeeButton)
         {
             progressBar.Visibility = showProgressBar ? Visibility.Visible : Visibility.Hidden;

@@ -2,16 +2,8 @@
 using EmployeeManagementTool.Agent;
 using EmployeeManagementTool.Contracts;
 using EmployeeManagementTool.Models;
-using EmployeeManagementTool.Models.Confifurations;
 using EmployeeManagementTool.Models.RestResponses;
-using EmployeeManagementTool.RestClient;
-using Microsoft.Extensions.Options;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EmployeeManagementTool.UnitTest
 {
