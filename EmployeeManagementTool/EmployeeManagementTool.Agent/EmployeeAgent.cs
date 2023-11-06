@@ -89,9 +89,14 @@ namespace EmployeeManagementTool.Agent
         }
 
         ///<inheritdoc/>
-        public Task<IEnumerable<Employee>> SearchEmployeeByNameAsync(string name)
+        public async Task<IEnumerable<EmployeeDto>> SearchEmployeeByNameAsync(string name)
         {
-            throw new NotImplementedException();
+            var result = await _employeeRestClient.SearchEmployeeByNameAsync(name);
+            if(result ==null || !result.Any())
+            {
+                return new List<EmployeeDto>();
+            }
+            return result;
         }
     }
 }

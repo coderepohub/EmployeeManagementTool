@@ -32,13 +32,13 @@ namespace EmployeeManagementTool
             _employeeAgent = employeeAgent ?? throw new ArgumentNullException(nameof(employeeAgent));
             InitializeComponent();
 
-        //    Employees = new ObservableCollection<EmployeeDto>
-        //{
-        //    new EmployeeDto { Id = 1, Name = "John Doe", Email = "john@example.com", Gender = "Male", Status = "Active" },
-        //    new EmployeeDto { Id = 2, Name = "Jane Smith", Email = "jane@example.com", Gender = "Female", Status = "Inactive" },
-        //    // Add more employees as needed
-        //};
-        //    EmployeeDataGridXAML.Items.Add(Employees);
+            //    Employees = new ObservableCollection<EmployeeDto>
+            //{
+            //    new EmployeeDto { Id = 1, Name = "John Doe", Email = "john@example.com", Gender = "Male", Status = "Active" },
+            //    new EmployeeDto { Id = 2, Name = "Jane Smith", Email = "jane@example.com", Gender = "Female", Status = "Inactive" },
+            //    // Add more employees as needed
+            //};
+            //    EmployeeDataGridXAML.Items.Add(Employees);
             DataContext = this;
 
             Initialize();
@@ -96,6 +96,15 @@ namespace EmployeeManagementTool
 
         private async void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
+        }
+
+        private async void btn_search_by_name_Click(object sender, RoutedEventArgs e)
+        {
+            progressSearch.Visibility = Visibility.Visible;
+            var result = await _employeeAgent.SearchEmployeeByNameAsync(searchNameTextBox.Text);
+            progressSearch.Visibility = Visibility.Hidden;
+            EmployeeDataGridXAML.ItemsSource = result;
+
         }
 
         private void ClearNewEmployeeForm()

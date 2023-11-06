@@ -21,7 +21,7 @@ public interface IEmployeeAgent
     /// </summary>
     /// <param name="name">name of employee.</param>
     /// <returns>Returns list of all employee details matching name.</returns>
-    Task<IEnumerable<Employee>> SearchEmployeeByNameAsync(string name);
+    Task<IEnumerable<EmployeeDto>> SearchEmployeeByNameAsync(string name);
 
     /// <summary>
     /// Search Employee By Id

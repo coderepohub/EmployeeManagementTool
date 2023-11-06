@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EmployeeManagementTool"
         mc:Ignorable="d"
-        Title="MainWindow" Height="503" Width="885">
+        Title="MainWindow" Height="503" Width="1200">
     <Grid>
         <TabControl>
             <TabItem Header="Add Employee">
@@ -35,7 +35,7 @@
                         <StackPanel Orientation="Horizontal" Margin="100,5,0,50">
                             <Button Name="btn_add_employee" Content="Add Employee" Margin="5" Width="100" Click="btn_add_employee_Click"/>
                         </StackPanel>
-                        
+
                         <!--Progress Bar-->
                         <ProgressBar x:Name="progressBar" IsIndeterminate="True" Visibility="Hidden"/>
                     </StackPanel>
@@ -43,17 +43,20 @@
             </TabItem>
             <TabItem Header="Manage Employee" >
                 <Grid Background="White">
-                 <!--Place here-->
-                    <DataGrid x:Name="EmployeeDataGridXAML" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="850" Height="400">
-                        
+                    <!--Place here-->
+                    <DataGrid x:Name="EmployeeDataGridXAML" HorizontalAlignment="Center" Margin="0,102,0,0" VerticalAlignment="Top" Width="1174" Height="308">
+
                         <!--Column Bindings-->
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="150"/>
                             <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="150"/>
-                            <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" Width="150"/>
-                            <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="150"/>
+                            <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" Width="50"/>
+                            <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="50"/>
                         </DataGrid.Columns>
                     </DataGrid>
+                    <TextBox x:Name="searchNameTextBox" HorizontalAlignment="Left" Margin="10,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246"/>
+                    <Button x:Name="btn_search_by_name" Content="Search By Name" HorizontalAlignment="Left" Margin="283,30,0,0" VerticalAlignment="Top" Width="201" Click="btn_search_by_name_Click"/>
+                    <ProgressBar x:Name="progressSearch" HorizontalAlignment="Left" Height="13" Margin="10,84,0,0" VerticalAlignment="Top" Width="850" IsIndeterminate="True" Visibility="Hidden"/>
                 </Grid>
             </TabItem>
         </TabControl>
