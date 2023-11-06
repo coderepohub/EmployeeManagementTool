@@ -121,16 +121,16 @@ namespace EmployeeManagementTool.RestClient
         ///<inheritdoc/>
         public async Task<bool> DeleteAsync(int id)
         {
-            bool isEdited = false;
+            bool isDeleted = false;
             var uri = $"{_employeeOperationUri}/{id}";
             var httpResponseMessage = await SendRequest<EmployeeDto>(Method.DELETE, uri);
             if (httpResponseMessage.IsSuccessStatusCode && httpResponseMessage.StatusCode == HttpStatusCode.NoContent)
             {
-                isEdited = true;
-                return isEdited;
+                isDeleted = true;
+                return isDeleted;
             }
 
-            return isEdited;
+            return isDeleted;
         }
 
 

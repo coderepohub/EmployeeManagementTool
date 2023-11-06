@@ -18,10 +18,7 @@ namespace EmployeeManagementTool.Agent.MappingProfiles
                 d.Status = Enum.GetValues(typeof(Status)).GetValue(0).ToString();
             });
 
-            CreateMap<IEnumerable<Employee>, IEnumerable<EmployeeDto>>();
-
-            CreateMap<EmployeeDto, EmployeeDto>();
-            CreateMap<IEnumerable<EmployeeDto>, IEnumerable<EmployeeDto>>();
+            CreateMap<EmployeeDto, Employee>();
         }
     }
 }

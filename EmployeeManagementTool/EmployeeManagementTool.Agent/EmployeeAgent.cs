@@ -16,15 +16,24 @@ namespace EmployeeManagementTool.Agent
         }
 
         ///<inheritdoc/>
-        public Task<bool> DeleteEmployeeAsync(int id)
+        public async Task<bool> DeleteEmployeeAsync(int id)
         {
-            throw new NotImplementedException();
+            if (id <= 0)
+            {
+                return false;
+            }
+            return await _employeeRestClient.DeleteAsync(id);
         }
 
         ///<inheritdoc/>
-        public Task<bool> EditEmployeeAsync(Employee employee)
+        public async Task<bool> EditEmployeeAsync(EmployeeDto employeeDto)
         {
-            throw new NotImplementedException();
+            int id = employeeDto.Id;
+            if (id <= 0)
+            {
+                return false;
+            }
+            return await _employeeRestClient.EditAsync(id, employeeDto);
         }
 
         ///<inheritdoc/>
@@ -54,7 +63,7 @@ namespace EmployeeManagementTool.Agent
             {
                 if (saveEmployeeRestResponse.IsSuccess)
                 {
-                    saveEmployeeRestResponse.IsSuccess = true;
+                    saveEmployeeAgentResponse.IsSuccess = true;
                 }
                 else
                 {
@@ -74,15 +83,14 @@ namespace EmployeeManagementTool.Agent
         }
 
         ///<inheritdoc/>
-        public async Task<Employee> SearchEmployeeByIdAsync(int id)
+        public async Task<EmployeeDto> SearchEmployeeByIdAsync(int id)
         {
             if (id < 0) { throw new ArgumentOutOfRangeException(nameof(id)); }
 
             var result = await _employeeRestClient.SearchEmployeeByIdAsync(id);
             if (result != null && result.Any())
             {
-                var employee = _mapper.Map<IEnumerable<Employee>>(result);
-                return employee.First();
+                return result.First();
             }
 
             return null;
@@ -92,7 +100,7 @@ namespace EmployeeManagementTool.Agent
         public async Task<IEnumerable<EmployeeDto>> SearchEmployeeByNameAsync(string name)
         {
             var result = await _employeeRestClient.SearchEmployeeByNameAsync(name);
-            if(result ==null || !result.Any())
+            if (result == null || !result.Any())
             {
                 return new List<EmployeeDto>();
             }

@@ -28,7 +28,7 @@ public interface IEmployeeAgent
     /// </summary>
     /// <param name="id">Id of the employee.</param>
     /// <returns>Return employee by id.</returns>
-    Task<Employee> SearchEmployeeByIdAsync(int id);
+    Task<EmployeeDto> SearchEmployeeByIdAsync(int id);
 
     /// <summary>
     /// Save a new Employee.
@@ -40,9 +40,9 @@ public interface IEmployeeAgent
     /// <summary>
     /// Edit the employee record.
     /// </summary>
-    /// <param name="employee">edited employee record</param>
+    /// <param name="employeeDto">edited employee record</param>
     /// <returns>True or False, if record is edited.</returns>
-    Task<bool> EditEmployeeAsync(Employee employee);
+    Task<bool> EditEmployeeAsync(EmployeeDto employeeDto);
 
     /// <summary>
     /// Delete the employee record by Id.

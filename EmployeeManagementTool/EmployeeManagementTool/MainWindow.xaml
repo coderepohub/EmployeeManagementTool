@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:EmployeeManagementTool"
         mc:Ignorable="d"
         Title="MainWindow" Height="503" Width="1200">
+    
     <Grid>
         <TabControl>
             <TabItem Header="Add Employee">
@@ -27,7 +28,8 @@
                         <!-- Gender -->
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                             <TextBlock Text="Gender:" Width="100" VerticalAlignment="Center"/>
-                            <ComboBox Name="GenderComboBox" Width="200" VerticalAlignment="Center" SelectedValue="{Binding Gender}"/>
+                            <!--<ComboBox Name="GenderComboBox" Width="200" VerticalAlignment="Center" SelectedValue="{Binding Gender}"/>-->
+                            <ComboBox Name="GenderComboBox" Width="200" VerticalAlignment="Center" SelectedValue="{Binding Gender, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding GenderValues, RelativeSource={RelativeSource AncestorType=Window}}"/>
 
                         </StackPanel>
 
@@ -41,17 +43,86 @@
                     </StackPanel>
                 </Grid>
             </TabItem>
-            <TabItem Header="Manage Employee" >
+            <TabItem Header="Manage Employee"  >
                 <Grid Background="White">
                     <!--Place here-->
-                    <DataGrid x:Name="EmployeeDataGridXAML" HorizontalAlignment="Center" Margin="0,102,0,0" VerticalAlignment="Top" Width="1174" Height="308">
+                    <DataGrid x:Name="EmployeeDataGridXAML" CellEditEnding="EmployeeDataGridXAML_CellEditEnding" HorizontalAlignment="Center" Margin="0,102,0,0" VerticalAlignment="Top" Width="1174" Height="308" AutoGenerateColumns="False">
 
                         <!--Column Bindings-->
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="150"/>
-                            <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="150"/>
-                            <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" Width="50"/>
-                            <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="50"/>
+                            <!-- Editable "Name" column -->
+                            <DataGridTemplateColumn Header="Name">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Name}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <TextBox x:Name="employeeRowName" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+
+                            <!-- Editable "Email" column -->
+                            <DataGridTemplateColumn Header="Email">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Email}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <TextBox x:Name="employeeRowEmail" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+
+                            <!-- Editable "Gender" column -->
+                            <DataGridTemplateColumn Header="Gender">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Gender}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <ComboBox x:Name="employeeRowGender" Width="200" VerticalAlignment="Center" SelectedValue="{Binding Gender, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding GenderValues, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+
+                            <!-- Editable "Status" column -->
+                            <DataGridTemplateColumn Header="Status">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Status}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <ComboBox x:Name="employeeRowStatus" Width="200" VerticalAlignment="Center" SelectedValue="{Binding Status, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Statuses, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+
+                            <!-- Update Button Column -->
+                            <DataGridTemplateColumn Header="Update">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Update" Click="btn_update_Click" Tag="{Binding Id}"  />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <!-- Delete Button Column -->
+                            <DataGridTemplateColumn Header="Delete">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Delete" Click="btn_delete_Click" Tag="{Binding Id}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                     <TextBox x:Name="searchNameTextBox" HorizontalAlignment="Left" Margin="10,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246"/>
