@@ -1,9 +1,12 @@
 ﻿using EmployeeManagementTool.Contracts;
 using EmployeeManagementTool.Models;
 using EmployeeManagementTool.Models.Enums;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -149,6 +152,50 @@ namespace EmployeeManagementTool
             var editedEmployeeData = (EmployeeDto)e.Row.Item;
             _editedEmployeeList.Add(editedEmployeeData);
         }
+
+        //Export Data to CSV Handler
+        private void btn_export_to_csv_Click(object sender, RoutedEventArgs e)
+        {
+            // Creating a SaveFileDialog to specify the CSV file location
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "CSV Files (*.csv)|*.csv";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                string filePath = saveFileDialog.FileName;
+
+                // Get the data from the DataGrid
+                var data = EmployeeDataGridXAML.Items.OfType<EmployeeDto>().ToList();
+
+                // Export data to CSV
+                ExportToCsv(filePath, data);
+            }
+        }
+
+        private void ExportToCsv(string filePath, List<EmployeeDto> data)
+        {
+            // Create a StringBuilder to build the CSV content
+            StringBuilder csv = new StringBuilder();
+
+            // Add headers
+            csv.AppendLine("Name,Email,Gender,Status");
+
+            // Add data rows
+            foreach (var employee in data)
+            {
+                csv.AppendLine($"{employee.Name},{employee.Email},{employee.Gender}");
+            }
+
+            // Write the CSV content to the file
+            File.WriteAllText(filePath, csv.ToString());
+
+            // Open the saved CSV file in the default application
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = filePath,
+                UseShellExecute = true
+            });
+        }
+
 
         #endregion
 

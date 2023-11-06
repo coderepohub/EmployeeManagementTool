@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EmployeeManagementTool"
         mc:Ignorable="d"
-        Title="MainWindow" Height="503" Width="1200">
-    
+        Title="Employee Management Tool" Height="503" Width="1200" ShowInTaskbar="False">
+
     <Grid>
         <TabControl>
             <TabItem Header="Add Employee">
@@ -45,7 +45,7 @@
             <TabItem Header="Manage Employee"  >
                 <Grid Background="White">
                     <!--Place here-->
-                    <DataGrid x:Name="EmployeeDataGridXAML" CellEditEnding="EmployeeDataGridXAML_CellEditEnding" HorizontalAlignment="Center" Margin="0,102,0,0" VerticalAlignment="Top" Width="1174" Height="308" AutoGenerateColumns="False">
+                    <DataGrid x:Name="EmployeeDataGridXAML" CellEditEnding="EmployeeDataGridXAML_CellEditEnding" HorizontalAlignment="Left" Margin="0,102,0,0" VerticalAlignment="Top" Width="1174" Height="308" AutoGenerateColumns="False">
 
                         <!--Column Bindings-->
                         <DataGrid.Columns>
@@ -124,8 +124,9 @@
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <TextBox x:Name="searchNameTextBox" HorizontalAlignment="Left" Margin="10,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246"/>
+                    <TextBox x:Name="searchNameTextBox" HorizontalAlignment="Left" Margin="10,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246" />
                     <Button x:Name="btn_search_by_name" Content="Search By Name" HorizontalAlignment="Left" Margin="283,30,0,0" VerticalAlignment="Top" Width="201" Click="btn_search_by_name_Click"/>
+                    <Button Content="Export to CSV" Click="btn_export_to_csv_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,418,0,0"/>
                     <ProgressBar x:Name="progressSearch" HorizontalAlignment="Left" Height="13" Margin="10,84,0,0" VerticalAlignment="Top" Width="850" IsIndeterminate="True" Visibility="Hidden"/>
                 </Grid>
             </TabItem>
